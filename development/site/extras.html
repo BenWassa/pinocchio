@@ -27,6 +27,7 @@
                         <li><a href="extras.html" class="nav-link">Extras</a></li>
                     </ul>
                 </nav>
+                <button class="btn btn-outline theme-toggle" type="button">Theme</button>
             </div>
         </div>
     </header>
@@ -83,18 +84,6 @@
     <div id="downloads" tabindex="-1"></div>
     <div id="extra" tabindex="-1"></div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const currentPath = window.location.pathname.split('/').pop();
-            const navLinks = document.querySelectorAll('.nav-link');
-
-            navLinks.forEach(link => {
-                const linkPath = link.getAttribute('href');
-                if (currentPath === linkPath || (currentPath === '' && linkPath === 'index.html')) {
-                    link.classList.add('active');
-                }
-            });
-        });
-    </script>
+    <script src="site.js" defer></script>
 </body>
 </html>

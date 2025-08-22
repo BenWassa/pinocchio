@@ -3,7 +3,7 @@
     --ink: #1A233A; /* Deep Slate Blue (derived from Pinocchio's bowtie for main text contrast) */
     --bg: #FDFBF8; /* Subtle Warm Off-White */
     --surface: #FFFFFF; /* Clean White */
-    
+
     /* Pinocchio Palette Accents for Immersive Style */
     --accent-interactive: #0161ad; /* Pinocchio's Bowtie Blue - for primary interactive elements (buttons, links, focus) */
     --accent-red-motif: #da362d; /* Pinocchio's Trousers Red - for string rules, wave divider (bold motifs) */
@@ -11,31 +11,54 @@
 
     --muted: #808d57; /* Jiminy Cricket Green/Brown - for secondary text, placeholders */
     --border: #D8DCE3; /* Light Blue-Grey */
-    
+    --nav-bg: rgba(255, 255, 255, 0.9);
+
     --radius: 16px;
     --radius-sm: 24px;
     --radius-lg: 24px;
-    
+
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    
+
     --space-1: 0.5rem;
     --space-2: 1rem;
     --space-3: 1.5rem;
     --space-4: 2rem;
     --space-5: 2.5rem;
     --space-6: 3rem;
-    
+
     --step--1: 0.875rem;
     --step-0: 1rem;
     --step-1: 1.125rem;
     --step-2: 1.25rem;
     --step-3: 1.5rem;
     --step-4: 2rem;
-    
+
     --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
     --dur-fast: 150ms;
     --dur-slow: 300ms;
+}
+
+/* Sepia Theme */
+[data-theme="sepia"] {
+    --ink: #463c2b;
+    --bg: #f4ecd8;
+    --surface: #fffaf0;
+    --accent-interactive: #b66b00;
+    --muted: #7a6a54;
+    --border: #d0c5b3;
+    --nav-bg: rgba(255, 250, 240, 0.9);
+}
+
+/* Celestial Theme */
+[data-theme="celestial"] {
+    --ink: #102a43;
+    --bg: #e7f1ff;
+    --surface: #ffffff;
+    --accent-interactive: #006dce;
+    --muted: #5c6b8a;
+    --border: #c5d5e5;
+    --nav-bg: rgba(231, 241, 255, 0.9);
 }
 
 /* Base Styles */
@@ -85,7 +108,7 @@ small { font-size: var(--step--1); color: var(--muted); }
 .nav {
     position: sticky;
     top: 0;
-    background: rgba(255, 255, 255, 0.9);
+    background: var(--nav-bg);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border);
     z-index: 100;
@@ -94,8 +117,16 @@ small { font-size: var(--step--1); color: var(--muted); }
 
 .nav-content {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: var(--space-2);
+}
+
+.nav-content nav {
+    margin-left: auto;
+}
+
+.theme-toggle {
+    margin-left: var(--space-2);
 }
 
 .nav-brand {
@@ -119,9 +150,10 @@ small { font-size: var(--step--1); color: var(--muted); }
     transition: all var(--dur-fast) var(--ease-standard);
 }
 
-.nav-link:hover, .nav-link:focus {
+.nav-link:hover,
+.nav-link:focus-visible {
     background: var(--accent-interactive);
-    color: white; 
+    color: white;
     outline: 2px solid var(--accent-interactive);
     outline-offset: 2px;
 }
@@ -178,7 +210,7 @@ small { font-size: var(--step--1); color: var(--muted); }
     align-items: center;
 }
 
-.chip:hover, .chip:focus {
+.chip:hover, .chip:focus-visible {
     border-color: var(--accent-interactive);
     outline: 2px solid var(--accent-interactive);
     outline-offset: 2px;
@@ -204,7 +236,7 @@ small { font-size: var(--step--1); color: var(--muted); }
     color: white; 
 }
 
-.btn-primary:hover, .btn-primary:focus {
+.btn-primary:hover, .btn-primary:focus-visible {
     background: var(--ink); /* Dark ink for hover */
     color: white; 
     outline: 2px solid var(--accent-interactive);
@@ -217,7 +249,7 @@ small { font-size: var(--step--1); color: var(--muted); }
     border: 2px solid var(--border);
 }
 
-.btn-outline:hover, .btn-outline:focus {
+.btn-outline:hover, .btn-outline:focus-visible {
     border-color: var(--accent-interactive);
     background: var(--accent-interactive);
     color: white; 
@@ -315,7 +347,7 @@ small { font-size: var(--step--1); color: var(--muted); }
 }
 
 /* Focus visible */
-:focus {
+:focus-visible {
     outline: 2px solid var(--accent-interactive);
     outline-offset: 2px;
 }
