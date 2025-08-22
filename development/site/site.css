@@ -1,2 +1,333 @@
-/* Site CSS */
-body { font-family: Arial, sans-serif; }
+/* Design Tokens */
+:root {
+    --ink: #1A233A; /* Deep Slate Blue (derived from Pinocchio's bowtie for main text contrast) */
+    --bg: #FDFBF8; /* Subtle Warm Off-White */
+    --surface: #FFFFFF; /* Clean White */
+    
+    /* Pinocchio Palette Accents for Immersive Style */
+    --accent-interactive: #0161ad; /* Pinocchio's Bowtie Blue - for primary interactive elements (buttons, links, focus) */
+    --accent-red-motif: #da362d; /* Pinocchio's Trousers Red - for string rules, wave divider (bold motifs) */
+    --accent-gold-motif: #fedc5e; /* Pinocchio's Cap Gold - for nose tick, subtle highlights (specific motifs) */
+
+    --muted: #808d57; /* Jiminy Cricket Green/Brown - for secondary text, placeholders */
+    --border: #D8DCE3; /* Light Blue-Grey */
+    
+    --radius: 16px;
+    --radius-sm: 24px;
+    --radius-lg: 24px;
+    
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    
+    --space-1: 0.5rem;
+    --space-2: 1rem;
+    --space-3: 1.5rem;
+    --space-4: 2rem;
+    --space-5: 2.5rem;
+    --space-6: 3rem;
+    
+    --step--1: 0.875rem;
+    --step-0: 1rem;
+    --step-1: 1.125rem;
+    --step-2: 1.25rem;
+    --step-3: 1.5rem;
+    --step-4: 2rem;
+    
+    --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+    --dur-fast: 150ms;
+    --dur-slow: 300ms;
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--bg);
+}
+
+/* Typography */
+h1 { font-size: var(--step-4); font-weight: 600; line-height: 1.2; }
+h2 { font-size: var(--step-3); font-weight: 600; line-height: 1.3; }
+h3 { font-size: var(--step-2); font-weight: 500; line-height: 1.4; }
+p { font-size: var(--step-0); }
+small { font-size: var(--step--1); color: var(--muted); }
+
+/* Layout */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 var(--space-3);
+}
+
+.section {
+    padding: var(--space-6) 0;
+}
+
+.grid {
+    display: grid;
+    gap: var(--space-3);
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 720px) {
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Navigation */
+.nav {
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+    padding: var(--space-2) 0;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    font-size: var(--step-2);
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: var(--space-3);
+    list-style: none;
+}
+
+.nav-link {
+    color: var(--ink);
+    text-decoration: none;
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
+    transition: all var(--dur-fast) var(--ease-standard);
+}
+
+.nav-link:hover, .nav-link:focus {
+    background: var(--accent-interactive);
+    color: white; 
+    outline: 2px solid var(--accent-interactive);
+    outline-offset: 2px;
+}
+
+.nav-link.active {
+    outline: 2px solid var(--accent-interactive);
+    outline-offset: -2px;
+}
+
+/* Skip Link */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: var(--accent-interactive);
+    color: white; 
+    padding: var(--space-1) var(--space-2);
+    text-decoration: none;
+    border-radius: var(--radius);
+    z-index: 200;
+}
+
+.skip-link:focus {
+    top: 6px;
+}
+
+/* Components */
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: var(--space-3);
+    box-shadow: var(--shadow-md);
+    transition: all var(--dur-fast) var(--ease-standard);
+}
+
+.card:hover {
+    box-shadow: 0 8px 25px -8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.chip {
+    display: inline-block;
+    padding: var(--space-1) var(--space-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    color: var(--ink);
+    text-decoration: none;
+    font-size: var(--step--1);
+    transition: all var(--dur-fast) var(--ease-standard);
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.chip:hover, .chip:focus {
+    border-color: var(--accent-interactive);
+    outline: 2px solid var(--accent-interactive);
+    outline-offset: 2px;
+}
+
+.btn {
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius);
+    font-size: var(--step-0);
+    font-weight: 500;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all var(--dur-fast) var(--ease-standard);
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-primary {
+    background: var(--accent-interactive);
+    color: white; 
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background: var(--ink); /* Dark ink for hover */
+    color: white; 
+    outline: 2px solid var(--accent-interactive);
+    outline-offset: 2px;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--ink);
+    border: 2px solid var(--border);
+}
+
+.btn-outline:hover, .btn-outline:focus {
+    border-color: var(--accent-interactive);
+    background: var(--accent-interactive);
+    color: white; 
+    outline: 2px solid var(--accent-interactive);
+    outline-offset: 2px;
+}
+
+/* Placeholder Elements */
+.placeholder-box {
+    border: 2px dashed var(--border);
+    border-radius: var(--radius);
+    padding: var(--space-6);
+    text-align: center;
+    color: var(--muted);
+    background: var(--bg);
+}
+
+.placeholder-media {
+    aspect-ratio: 16/9;
+    border: 2px dashed var(--border);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: var(--step--1);
+    margin-bottom: var(--space-2);
+}
+
+.placeholder-micro {
+    aspect-ratio: 1;
+    height: 60px;
+    border: 2px dashed var(--border);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: var(--step--1);
+    margin-bottom: var(--space-2);
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: var(--space-6) 0;
+}
+
+.hero h1 {
+    margin-bottom: var(--space-2);
+}
+
+.hero p {
+    margin-bottom: var(--space-4);
+    font-size: var(--step-1);
+    color: var(--muted);
+}
+
+.hero-actions {
+    display: flex;
+    gap: var(--space-2);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Motifs */
+.string-rule {
+    height: 1px;
+    background: var(--accent-red-motif); /* Red for string rule, echoing Pinocchio's trousers */
+    width: 100%;
+    margin: var(--space-2) 0;
+}
+
+.nose-tick::before {
+    content: "✓";
+    color: var(--accent-gold-motif); /* Gold for nose tick, referencing Pinocchio's cap */
+    font-size: var(--step--1);
+    margin-right: var(--space-1);
+}
+
+.wave-divider {
+    height: 3px;
+    background: var(--accent-red-motif); /* Red for wave divider, referencing sea sequences as a bold marker */
+    margin: var(--space-5) 0;
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Focus visible */
+:focus {
+    outline: 2px solid var(--accent-interactive);
+    outline-offset: 2px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 719px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+}
