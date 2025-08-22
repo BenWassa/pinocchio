@@ -1,2 +1,103 @@
-<!-- Characters page -->
-<html><head><title>Characters</title></head><body><h1>Characters</h1></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Characters • Pinocchio (1940)</title>
+    <meta name="description" content="Meet the iconic characters of Walt Disney's Pinocchio (1940) and understand their roles in this timeless tale of morality.">
+    <meta property="og:title" content="Pinocchio (1940) • Characters">
+    <meta property="og:description" content="Discover the cast of memorable characters from Disney's classic animated film.">
+    <meta property="og:image" content="[OG Image Placeholder - Pinocchio (1940) Characters]">
+    
+    <link rel="stylesheet" href="site.css">
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    
+    <header class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="nav-brand">Pinocchio (1940)</a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="episodes.html" class="nav-link">Episodes</a></li>
+                        <li><a href="characters.html" class="nav-link">Characters</a></li>
+                        <li><a href="themes.html" class="nav-link">Themes</a></li>
+                        <li><a href="podcast.html" class="nav-link">Podcast</a></li>
+                        <li><a href="extras.html" class="nav-link">Extras</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <main id="main">
+        <section id="characters" class="section">
+            <div class="container">
+                <h2>Characters</h2>
+                <div class="grid grid-3">
+                    <article class="card">
+                        <div class="placeholder-media" role="img" aria-label="Placeholder: Character image of Pinocchio">Character Image</div>
+                        <h3>Pinocchio</h3>
+                        <small>The Innocent Seeker</small>
+                        <br><br>
+                        <a href="#character-1" class="chip">Learn More</a>
+                    </article>
+                    <article class="card">
+                        <div class="placeholder-media" role="img" aria-label="Placeholder: Character image of Jiminy Cricket">Character Image</div>
+                        <h3>Jiminy Cricket</h3>
+                        <small>The Guiding Conscience</small>
+                        <br><br>
+                        <a href="#character-2" class="chip">Learn More</a>
+                    </article>
+                    <article class="card">
+                        <div class="placeholder-media" role="img" aria-label="Placeholder: Character image of Geppetto">Character Image</div>
+                        <h3>Geppetto</h3>
+                        <small>The Loving Creator</small>
+                        <br><br>
+                        <a href="#character-3" class="chip">Learn More</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="section" style="background: var(--surface); border-top: 1px solid var(--border);">
+        <div class="container">
+            <div class="grid grid-3">
+                <div>
+                    <h3>Credits</h3>
+                    <p>Directed by Hamilton Luske & Ben Sharpsteen. Music by Leigh Harline & Paul J. Smith. Produced by Walt Disney.</p>
+                </div>
+                <div>
+                    <h3>Legal & Copyright</h3>
+                    <p>© 1940 Walt Disney Productions. All rights reserved.</p>
+                </div>
+                <div>
+                    <h3>Connect & Share</h3>
+                    <p>Follow our journey on social media.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Hidden anchor targets for navigation within this page -->
+    <div id="character-1" tabindex="-1"></div>
+    <div id="character-2" tabindex="-1"></div>
+    <div id="character-3" tabindex="-1"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPath = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            navLinks.forEach(link => {
+                const linkPath = link.getAttribute('href');
+                if (currentPath === linkPath || (currentPath === '' && linkPath === 'index.html')) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

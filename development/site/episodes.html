@@ -1,2 +1,110 @@
-<!-- Episodes page -->
-<html><head><title>Episodes</title></head><body><h1>Episodes</h1></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Episodes/Acts • Pinocchio (1940)</title>
+    <meta name="description" content="Dive into the five acts of Pinocchio's moral journey, exploring key moments and lessons from the classic 1940 film.">
+    <meta property="og:title" content="Pinocchio (1940) • Episodes/Acts">
+    <meta property="og:description" content="Explore the episodic structure and pivotal moments of Disney's Pinocchio.">
+    <meta property="og:image" content="[OG Image Placeholder - Pinocchio (1940) Episodes]">
+    
+    <link rel="stylesheet" href="site.css">
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    
+    <header class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="nav-brand">Pinocchio (1940)</a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="episodes.html" class="nav-link">Episodes</a></li>
+                        <li><a href="characters.html" class="nav-link">Characters</a></li>
+                        <li><a href="themes.html" class="nav-link">Themes</a></li>
+                        <li><a href="podcast.html" class="nav-link">Podcast</a></li>
+                        <li><a href="extras.html" class="nav-link">Extras</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <main id="main">
+        <section id="episodes" class="section">
+            <div class="container">
+                <h2>Episodes/Acts</h2>
+                <div class="string-rule"></div>
+                <div class="grid grid-3">
+                    <article class="card">
+                        <h3>The Wish & The Spark of Life</h3>
+                        <p>Geppetto's longing, a star's magic, and a puppet's awakening.</p>
+                        <a href="#act-1" class="chip">View Act</a>
+                    </article>
+                    <article class="card">
+                        <h3>Temptation & The Path Diverged</h3>
+                        <p>Honest John's deceit, Stromboli's stage, and a growing nose.</p>
+                        <a href="#act-2" class="chip">View Act</a>
+                    </article>
+                    <article class="card">
+                        <h3>Pleasure's Trap & The Price of Folly</h3>
+                        <p>Lampwick's influence, Pleasure Island's perils, and a harsh transformation.</p>
+                        <a href="#act-3" class="chip">View Act</a>
+                    </article>
+                    <article class="card">
+                        <h3>The Search & A Father's Devotion</h3>
+                        <p>Geppetto's quest, the vast ocean, and a whale's belly.</p>
+                        <a href="#act-4" class="chip">View Act</a>
+                    </article>
+                    <article class="card">
+                        <h3>Redemption & A Real Boy's Spirit</h3>
+                        <p>Selfless bravery, sacrifice, and the ultimate transformation.</p>
+                        <a href="#act-5" class="chip">View Act</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="section" style="background: var(--surface); border-top: 1px solid var(--border);">
+        <div class="container">
+            <div class="grid grid-3">
+                <div>
+                    <h3>Credits</h3>
+                    <p>Directed by Hamilton Luske & Ben Sharpsteen. Music by Leigh Harline & Paul J. Smith. Produced by Walt Disney.</p>
+                </div>
+                <div>
+                    <h3>Legal & Copyright</h3>
+                    <p>© 1940 Walt Disney Productions. All rights reserved.</p>
+                </div>
+                <div>
+                    <h3>Connect & Share</h3>
+                    <p>Follow our journey on social media.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Hidden anchor targets for navigation within this page -->
+    <div id="act-1" tabindex="-1"></div>
+    <div id="act-2" tabindex="-1"></div>
+    <div id="act-3" tabindex="-1"></div>
+    <div id="act-4" tabindex="-1"></div>
+    <div id="act-5" tabindex="-1"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPath = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            navLinks.forEach(link => {
+                const linkPath = link.getAttribute('href');
+                if (currentPath === linkPath || (currentPath === '' && linkPath === 'index.html')) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

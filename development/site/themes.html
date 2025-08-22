@@ -1,2 +1,102 @@
-<!-- Themes page -->
-<html><head><title>Themes</title></head><body><h1>Themes</h1></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Themes • Pinocchio (1940)</title>
+    <meta name="description" content="Explore the profound moral and philosophical themes embedded in Walt Disney's Pinocchio (1940), from truth and lies to freedom and responsibility.">
+    <meta property="og:title" content="Pinocchio (1940) • Themes">
+    <meta property="og:description" content="Uncover the deeper meanings and timeless lessons presented in Disney's classic Pinocchio.">
+    <meta property="og:image" content="[OG Image Placeholder - Pinocchio (1940) Themes]">
+    
+    <link rel="stylesheet" href="site.css">
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    
+    <header class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="nav-brand">Pinocchio (1940)</a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="episodes.html" class="nav-link">Episodes</a></li>
+                        <li><a href="characters.html" class="nav-link">Characters</a></li>
+                        <li><a href="themes.html" class="nav-link">Themes</a></li>
+                        <li><a href="podcast.html" class="nav-link">Podcast</a></li>
+                        <li><a href="extras.html" class="nav-link">Extras</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <main id="main">
+        <section id="themes" class="section">
+            <div class="container">
+                <h2>Themes</h2>
+                <div style="display: flex; gap: var(--space-2); flex-wrap: wrap; margin-bottom: var(--space-4);">
+                    <span class="chip">Morality</span>
+                    <span class="chip">Consequences</span>
+                    <span class="chip">Transformation</span>
+                </div>
+                <div class="grid grid-2">
+                    <article class="card">
+                        <div class="placeholder-micro">📊</div>
+                        <h3 class="nose-tick">Truth & Lies</h3>
+                        <p>The critical lesson of honesty and the visible burden of falsehoods.</p>
+                    </article>
+                    <article class="card">
+                        <div class="placeholder-micro">📊</div>
+                        <h3>Conscience & Inner Voice</h3>
+                        <p>The importance of moral guidance and self-reflection.</p>
+                    </article>
+                    <article class="card">
+                        <div class="placeholder-micro">📊</div>
+                        <h3>Freedom & Responsibility</h3>
+                        <p>The balance between desires and the duties of choice.</p>
+                    </article>
+                    <article class="card">
+                        <div class="placeholder-micro">📊</div>
+                        <h3>Sacrifice & Unconditional Love</h3>
+                        <p>The profound acts of devotion and their transformative power.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="section" style="background: var(--surface); border-top: 1px solid var(--border);">
+        <div class="container">
+            <div class="grid grid-3">
+                <div>
+                    <h3>Credits</h3>
+                    <p>Directed by Hamilton Luske & Ben Sharpsteen. Music by Leigh Harline & Paul J. Smith. Produced by Walt Disney.</p>
+                </div>
+                <div>
+                    <h3>Legal & Copyright</h3>
+                    <p>© 1940 Walt Disney Productions. All rights reserved.</p>
+                </div>
+                <div>
+                    <h3>Connect & Share</h3>
+                    <p>Follow our journey on social media.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPath = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            navLinks.forEach(link => {
+                const linkPath = link.getAttribute('href');
+                if (currentPath === linkPath || (currentPath === '' && linkPath === 'index.html')) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
